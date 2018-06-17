@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-using StructureMap;
-using StructureMap.Configuration.DSL;
+using Lamar;
 using Topshelf.Builders;
 using Topshelf.Configurators;
 using Topshelf.HostConfigurators;
@@ -14,21 +13,15 @@ namespace Topshelf.StructureMap
 
 		public static IContainer Container => _container;
 
-		public StructureMapBuilderConfigurator(Registry registry) {
+		public StructureMapBuilderConfigurator(ServiceRegistry registry) {
 			if (registry == null)
 				throw new ArgumentNullException(nameof(registry));
 			_container = new Container(registry);
 		}
 
-		public StructureMapBuilderConfigurator(IContainer container, params Registry[] registries) {
-			if (container == null)
-				throw new ArgumentNullException(nameof(container));
-			if (registries != null && registries.Length > 0)
-				container.Configure(x => {
-					foreach (var registry in registries)
-						x.AddRegistry(registry);
-				});
-			_container = container;
+		public StructureMapBuilderConfigurator(IContainer container)
+		{
+			_container = container ?? throw new ArgumentNullException(nameof(container));
 		}
 
 		public IEnumerable<ValidateResult> Validate() {

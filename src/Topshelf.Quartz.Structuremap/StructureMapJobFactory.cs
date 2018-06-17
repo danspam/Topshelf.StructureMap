@@ -3,9 +3,9 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
+using Lamar;
 using Quartz;
 using Quartz.Spi;
-using StructureMap;
 
 namespace Topshelf.Quartz.StructureMap
 {

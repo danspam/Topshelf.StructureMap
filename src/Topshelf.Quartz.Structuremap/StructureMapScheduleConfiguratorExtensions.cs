@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 using Quartz.Spi;
 using Topshelf.HostConfigurators;
@@ -41,12 +42,13 @@ namespace Topshelf.Quartz.StructureMap
             container.Configure(c =>
             {
                 if (withNestedContainers)
-                    c.For<IJobFactory>().Use<NestedContainerJobFactory>();
+                    c.AddScoped<IJobFactory, NestedContainerJobFactory>();
                 else
-                    c.For<IJobFactory>().Use<SimpleStructureMapJobFactory>();
+                    c.AddTransient<IJobFactory, SimpleStructureMapJobFactory>();
 
-                c.For<ISchedulerFactory>().Use<StructureMapSchedulerFactory>();
-                c.For<Task<IScheduler>>().Use(ctx => ctx.GetInstance<ISchedulerFactory>().GetScheduler(CancellationToken.None)).Singleton();
+                c.AddTransient<ISchedulerFactory, StructureMapSchedulerFactory>();
+                c.AddSingleton(typeof(Task<IScheduler>),
+                    ctx => ctx.GetService<ISchedulerFactory>().GetScheduler(CancellationToken.None));
             });
 
             ScheduleJobServiceConfiguratorExtensions.SchedulerFactory = () => container.GetInstance<Task<IScheduler>>();

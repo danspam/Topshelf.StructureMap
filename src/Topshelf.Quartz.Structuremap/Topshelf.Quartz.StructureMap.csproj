@@ -6,8 +6,8 @@
     <PackageId>Topshelf.Quartz.StructureMap</PackageId>
     <Description>StructureMap integration with Topshelf and Quartz</Description>
     <VersionPrefix>0.7.1</VersionPrefix>
-    
-    <TargetFramework>net452</TargetFramework>
+
+    <TargetFramework>net471</TargetFramework>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/swimtver/Topshelf.StructureMap</RepositoryUrl>
     <PackageProjectUrl>https://github.com/swimtver/Topshelf.StructureMap</PackageProjectUrl>

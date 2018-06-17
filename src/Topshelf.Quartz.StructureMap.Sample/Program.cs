@@ -2,8 +2,8 @@
 
 using System;
 using System.Threading.Tasks;
+using Lamar;
 using Quartz;
-using StructureMap;
 using Topshelf.StructureMap;
 
 namespace Topshelf.Quartz.StructureMap.Sample
@@ -16,7 +16,7 @@ namespace Topshelf.Quartz.StructureMap.Sample
             {
                 var container = new Container(cfg =>
                 {
-                    cfg.For<IDependency>().Use<Dependency>().AlwaysUnique();
+                    cfg.For<IDependency>().Use<Dependency>().Transient();
                     cfg.For<IScopeDependency>().Use<ScopeDependency>();
                 });
                 c.UseStructureMap(container);
@@ -59,7 +59,7 @@ namespace Topshelf.Quartz.StructureMap.Sample
         }
     }
 
-    internal class SampleJob : IJob
+    public class SampleJob : IJob
     {
         private readonly IDependency _first;
         private readonly IDependency _second;
@@ -122,7 +122,7 @@ namespace Topshelf.Quartz.StructureMap.Sample
         }
     }
 
-    internal class SampleService
+    public class SampleService
     {
         private readonly IDependency _dependency;
 
@@ -147,7 +147,7 @@ namespace Topshelf.Quartz.StructureMap.Sample
         }
     }
 
-    internal class SampleServiceControl : ServiceControl
+    public class SampleServiceControl : ServiceControl
     {
         private readonly IDependency _dependency;
 
