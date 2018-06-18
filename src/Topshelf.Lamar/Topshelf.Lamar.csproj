@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Title>Topshelf.StructureMap</Title>
+    <Title>Topshelf.Lamar</Title>
     <Company>Europlan</Company>
     <Copyright>Copyright © Europlan 2018</Copyright>
-    <PackageId>Topshelf.Lanar</PackageId>
+    <PackageId>Topshelf.Lamar</PackageId>
     <Description>Lamar integration with Topshelf</Description>
-    <PackageVersion>0.5.1</PackageVersion>
+    <PackageVersion>1.0.0</PackageVersion>
 
     <TargetFramework>net471</TargetFramework>
     <RepositoryType>git</RepositoryType>
@@ -14,7 +14,7 @@
     <PackageLicenseUrl>https://github.com/swimtver/Topshelf.StructureMap/blob/master/license.txt</PackageLicenseUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Lamar" Version="1.0.2" />
+    <PackageReference Include="Lamar" Version="1.0.*" />
     <PackageReference Include="Topshelf" Version="[4.0.1, 5)" />
   </ItemGroup>
 </Project>

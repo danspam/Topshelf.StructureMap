@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Title>Topshelf.Quartz.StructureMap</Title>
+    <Title>Topshelf.Quartz.Lamar</Title>
     <Company>Europlan</Company>
     <Copyright>Copyright © Europlan 2018</Copyright>
     <PackageId>Topshelf.Quartz.Lamar</PackageId>
     <Description>Lamar integration with Topshelf and Quartz</Description>
-    <VersionPrefix>0.7.1</VersionPrefix>
+    <PackageVersion>1.0.0</PackageVersion>
 
     <TargetFramework>net471</TargetFramework>
     <RepositoryType>git</RepositoryType>
