@@ -7,7 +7,7 @@ using Lamar;
 using Quartz;
 using Quartz.Spi;
 
-namespace Topshelf.Quartz.StructureMap
+namespace Topshelf.Quartz.Lamar
 {
 	public class SimpleJobFactory : IJobFactory
 	{
@@ -74,8 +74,7 @@ namespace Topshelf.Quartz.StructureMap
 				return;
 			}
 
-			IContainer container;
-			if (Containers.TryRemove(job.GetHashCode(), out container)) {
+			if (Containers.TryRemove(job.GetHashCode(), out var container)) {
 				if (container == null) { Debug.WriteLine("Container is null"); return; }
 				container.Dispose();
 			} else {

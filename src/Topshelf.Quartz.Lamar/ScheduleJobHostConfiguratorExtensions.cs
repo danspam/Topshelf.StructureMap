@@ -2,7 +2,7 @@ using System;
 using Quartz.Spi;
 using Topshelf.HostConfigurators;
 
-namespace Topshelf.Quartz.StructureMap
+namespace Topshelf.Quartz.Lamar
 {
 	public static class ScheduleJobHostConfiguratorExtensions
 	{

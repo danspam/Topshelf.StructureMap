@@ -3,8 +3,8 @@
     <Title>Topshelf.StructureMap</Title>
     <Company>Europlan</Company>
     <Copyright>Copyright © Europlan 2018</Copyright>
-    <PackageId>Topshelf.StructureMap</PackageId>
-    <Description>StructureMap integration with Topshelf</Description>
+    <PackageId>Topshelf.Lanar</PackageId>
+    <Description>Lamar integration with Topshelf</Description>
     <PackageVersion>0.5.1</PackageVersion>
 
     <TargetFramework>net471</TargetFramework>

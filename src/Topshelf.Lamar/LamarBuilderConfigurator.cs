@@ -5,21 +5,21 @@ using Topshelf.Builders;
 using Topshelf.Configurators;
 using Topshelf.HostConfigurators;
 
-namespace Topshelf.StructureMap
+namespace Topshelf.Lamar
 {
-	public class StructureMapBuilderConfigurator : HostBuilderConfigurator
+	public class LamarBuilderConfigurator : HostBuilderConfigurator
 	{
 		private static IContainer _container;
 
 		public static IContainer Container => _container;
 
-		public StructureMapBuilderConfigurator(ServiceRegistry registry) {
+		public LamarBuilderConfigurator(ServiceRegistry registry) {
 			if (registry == null)
 				throw new ArgumentNullException(nameof(registry));
 			_container = new Container(registry);
 		}
 
-		public StructureMapBuilderConfigurator(IContainer container)
+		public LamarBuilderConfigurator(IContainer container)
 		{
 			_container = container ?? throw new ArgumentNullException(nameof(container));
 		}

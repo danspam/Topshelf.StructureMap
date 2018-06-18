@@ -7,7 +7,7 @@ using Quartz.Impl;
 using Quartz.Spi;
 using Topshelf.ServiceConfigurators;
 
-namespace Topshelf.Quartz.StructureMap
+namespace Topshelf.Quartz.Lamar
 {
     public static class ScheduleJobServiceConfiguratorExtensions
     {

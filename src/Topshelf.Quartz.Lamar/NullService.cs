@@ -1,4 +1,4 @@
-﻿namespace Topshelf.Quartz.StructureMap
+﻿namespace Topshelf.Quartz.Lamar
 {
 	public class NullService
 	{

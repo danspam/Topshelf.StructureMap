@@ -3,8 +3,8 @@
     <Title>Topshelf.Quartz.StructureMap</Title>
     <Company>Europlan</Company>
     <Copyright>Copyright © Europlan 2018</Copyright>
-    <PackageId>Topshelf.Quartz.StructureMap</PackageId>
-    <Description>StructureMap integration with Topshelf and Quartz</Description>
+    <PackageId>Topshelf.Quartz.Lamar</PackageId>
+    <Description>Lamar integration with Topshelf and Quartz</Description>
     <VersionPrefix>0.7.1</VersionPrefix>
 
     <TargetFramework>net471</TargetFramework>
@@ -17,6 +17,6 @@
     <PackageReference Include="Quartz" Version="[3,4)" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Topshelf.StructureMap\Topshelf.StructureMap.csproj" />
+    <ProjectReference Include="..\Topshelf.Lamar\Topshelf.Lamar.csproj" />
   </ItemGroup>
 </Project>

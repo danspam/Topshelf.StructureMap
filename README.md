@@ -1,5 +1,7 @@
+#Forked And Changed to Use Lamar Instead of Structuremap
+
 #Getting Started
-You can download packages on NuGet Gallery:
+You can download original packages on NuGet Gallery:
 * [Topshelf.StructureMap](http://www.nuget.org/packages/Topshelf.StructureMap/)
 * [Topshelf.Quartz.StructureMap](https://www.nuget.org/packages/Topshelf.Quartz.StructureMap/)
 
@@ -15,19 +17,19 @@ class Program
                                             {
                                                 cfg.For<IDependency>().Use<Dependency>();
                                             });
-            // Init StructureMap container 
-            c.UseStructureMap(container);
+            // Init Lamar container 
+            c.UseLamar(container);
 
             c.Service<SampleService>(s =>
             {
-                //Construct topshelf service instance with StructureMap
-                s.ConstructUsingStructureMap();
+                //Construct topshelf service instance with Lamar
+                s.ConstructUsingLamar();
 
                 s.WhenStarted((service, control) => service.Start());
                 s.WhenStopped((service, control) => service.Stop());
                 
-                //Construct IJob instance with StructureMap
-                s.UseQuartzStructureMap();
+                //Construct IJob instance with Lamar
+                s.UseQuartzLamar();
 
                 s.ScheduleQuartzJob(q =>
                     q.WithJob(() =>

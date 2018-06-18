@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Lamar;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
-using Topshelf.StructureMap;
+using Topshelf.Lamar;
 
-namespace Topshelf.Quartz.StructureMap.Sample
+namespace Topshelf.Quartz.Lamar.Sample
 {
     class Program
     {
@@ -20,14 +20,14 @@ namespace Topshelf.Quartz.StructureMap.Sample
                     cfg.AddTransient<IDependency, Dependency>();
                     cfg.AddScoped<IScopeDependency, ScopeDependency>();
                 });
-                c.UseStructureMap(container);
+                c.UseLamar(container);
 #if SERVICE_CONTROL
 
                 c.Service<SampleServiceControl>(
                      s =>
                      {
-                         s.ConstructUsingStructureMap();
-                         s.UseQuartzStructureMap()
+                         s.ConstructUsingLamar();
+                         s.UseQuartzLamar()
                             .ScheduleQuartzJob(q =>
                                     q.WithJob(() =>
                                         JobBuilder.Create<SampleJob>().Build())
@@ -37,16 +37,16 @@ namespace Topshelf.Quartz.StructureMap.Sample
                                     );
                      });
 #else
-				c.Service<SampleService>(
+                c.Service<SampleService>(
 					 s => {
-						 //Construct topshelf service instance with StructureMap
-						 s.ConstructUsingStructureMap();
+						 //Construct topshelf service instance with Lamar
+						 s.ConstructUsingLamar();
 
 						 s.WhenStarted((service, control) => service.Start());
 						 s.WhenStopped((service, control) => service.Stop());
 
-						 //Construct IJob instance with StructureMap
-						 s.UseQuartzStructureMap()
+						 //Construct IJob instance with Lamar
+						 s.UseQuartzLamar()
 						  .ScheduleQuartzJob(q =>
 								q.WithJob(() =>
 									JobBuilder.Create<SampleJob>().Build())

@@ -1,16 +1,16 @@
 Framework "4.6"
 properties {
 	$BaseDir = Resolve-Path ".\src"
-	$SolutionFile = "$BaseDir\Topshelf.StructureMap.sln"
-	$OutputDir1 = "$BaseDir\Topshelf.StructureMap\bin"	
-	$OutputDir2 = "$BaseDir\Topshelf.Quartz.Structuremap\bin"
+	$SolutionFile = "$BaseDir\Topshelf.Lamar.sln"
+	$OutputDir1 = "$BaseDir\Topshelf.Lamar\bin"
+	$OutputDir2 = "$BaseDir\Topshelf.Quartz.Lamar\bin"
 	$Configuration = "Release"
 }
 
 task default -depends Build
 
 task Init {
-    cls	
+    cls
 }
 
 task Clean -depends Init {
@@ -32,9 +32,9 @@ task Build -depends Init,Clean,RestorePackages {
 
 task Publish -depends Build {
     exec {
-        dotnet pack "$BaseDir\Topshelf.StructureMap\Topshelf.StructureMap.csproj" -o $OutputDir1 --no-build --include-symbols -c $Configuration
+        dotnet pack "$BaseDir\Topshelf.Lamar\Topshelf.Lamar.csproj" -o $OutputDir1 --no-build --include-symbols -c $Configuration
     }
 	 exec {
-        dotnet pack "$BaseDir\Topshelf.Quartz.StructureMap\Topshelf.Quartz.StructureMap.csproj" -o $OutputDir2 --no-build --include-symbols -c $Configuration
-    }     
+        dotnet pack "$BaseDir\Topshelf.Quartz.Lamar\Topshelf.Quartz.Lamar.csproj" -o $OutputDir2 --no-build --include-symbols -c $Configuration
+    }
 }

@@ -3,13 +3,13 @@ using Quartz.Core;
 using Quartz.Impl;
 using Quartz.Spi;
 
-namespace Topshelf.Quartz.StructureMap
+namespace Topshelf.Quartz.Lamar
 {
-	public class StructureMapSchedulerFactory : StdSchedulerFactory
+	public class LamarSchedulerFactory : StdSchedulerFactory
 	{
 		private readonly IJobFactory _jobFactory;
 
-		public StructureMapSchedulerFactory(IJobFactory jobFactory) {
+		public LamarSchedulerFactory(IJobFactory jobFactory) {
 			_jobFactory = jobFactory;
 		}
 
