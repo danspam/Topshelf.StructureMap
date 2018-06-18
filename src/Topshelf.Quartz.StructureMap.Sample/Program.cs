@@ -3,6 +3,7 @@
 using System;
 using System.Threading.Tasks;
 using Lamar;
+using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 using Topshelf.StructureMap;
 
@@ -16,8 +17,8 @@ namespace Topshelf.Quartz.StructureMap.Sample
             {
                 var container = new Container(cfg =>
                 {
-                    cfg.For<IDependency>().Use<Dependency>().Transient();
-                    cfg.For<IScopeDependency>().Use<ScopeDependency>();
+                    cfg.AddTransient<IDependency, Dependency>();
+                    cfg.AddScoped<IScopeDependency, ScopeDependency>();
                 });
                 c.UseStructureMap(container);
 #if SERVICE_CONTROL
