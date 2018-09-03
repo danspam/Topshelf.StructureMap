@@ -40,7 +40,7 @@ namespace Topshelf.Quartz.Lamar
 	public class NestedContainerJobFactory : IJobFactory
 	{
 		private readonly IContainer _container;
-		static readonly ConcurrentDictionary<int, IContainer> Containers = new ConcurrentDictionary<int, IContainer>();
+		static readonly ConcurrentDictionary<int, INestedContainer> Containers = new ConcurrentDictionary<int, INestedContainer>();
 
 		public NestedContainerJobFactory(IContainer container) {
 			_container = container;

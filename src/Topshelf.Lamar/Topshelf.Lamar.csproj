@@ -5,16 +5,19 @@
     <Copyright>Copyright © Europlan 2018</Copyright>
     <PackageId>Topshelf.Lamar</PackageId>
     <Description>Lamar integration with Topshelf</Description>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
 
     <TargetFramework>net471</TargetFramework>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/swimtver/Topshelf.StructureMap</RepositoryUrl>
     <PackageProjectUrl>https://github.com/swimtver/Topshelf.StructureMap</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/swimtver/Topshelf.StructureMap/blob/master/license.txt</PackageLicenseUrl>
+    <Version>1.0.1</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Lamar" Version="1.0.*" />
+    <PackageReference Include="Lamar" Version="1.*" />
     <PackageReference Include="Topshelf" Version="[4.0.1, 5)" />
   </ItemGroup>
 </Project>
